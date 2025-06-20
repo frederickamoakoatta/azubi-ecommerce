@@ -1,26 +1,108 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #ffffff;
+    --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+    --font-manrope: 'Manrope', sans-serif;
+    --color-primary: #D87D4A;
+    --color-primaryFade: #FBAF85;
+    --color-secondary: #101010;
+    --color-accent: #F1F1F1;
+    --color-light: #FAFAFA;
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+    --color-red: #CD2C2C;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    font-family: var(--font-manrope);
+}
+
+h1 {
+    font-size: 56px;
+    font-weight: bold;
+    line-height: 58px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 44px;
+    letter-spacing: 1.43px;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 36px;
+    letter-spacing: 1.14px;
+    text-transform: uppercase;
+}
+
+h4 {
+    font-size: 28px;
+    font-weight: bold;
+    line-height: normal;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+h5 {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: normal;
+    letter-spacing: 1.71px;
+    text-transform: uppercase;
+}
+
+h6 {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: normal;
+    letter-spacing: 1.29px;
+    text-transform: uppercase;
+}
+
+p {
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 25px;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.overline {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: normal;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+}
+
+.subtitle {
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 25px;
+    letter-spacing: 0.93px;
+    text-transform: uppercase;
+}
+
+input {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: normal;
+    letter-spacing: -0.25px;
+}
+
+label {
+    font-size: 12px;
+    font-weight: bold;
+    line-height: normal;
+    letter-spacing: -0.21px;
 }
