@@ -6,7 +6,7 @@
 }
 
 @theme {
-    --font-manrope: 'Manrope', sans-serif;
+    --font-manrope: 'Manrope';
     --color-primary: #D87D4A;
     --color-primaryFade: #FBAF85;
     --color-secondary: #101010;
@@ -17,8 +17,8 @@
     --color-red: #CD2C2C;
 }
 body {
-    background: var(--background);
-    font-family: var(--font-manrope);
+    background: var(--color-white);
+    font-family: var(--font-manrope), sans-serif;
 }
 
 h1 {
@@ -74,10 +74,9 @@ p {
     font-weight: normal;
     line-height: 25px;
     letter-spacing: 0;
-    text-transform: uppercase;
 }
 
-.overline {
+.txt-overline {
     font-size: 14px;
     font-weight: normal;
     line-height: normal;
@@ -105,4 +104,12 @@ label {
     font-weight: bold;
     line-height: normal;
     letter-spacing: -0.21px;
+}
+
+.navLink {
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 25px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
