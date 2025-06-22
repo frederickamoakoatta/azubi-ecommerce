@@ -1,0 +1,33 @@
+import {StateCreator} from "zustand";
+
+export type CartItemType = {
+    id: number;
+    name: string;
+    quantity: number;
+};
+
+export type CartSliceType = {
+    cart: CartItemType[];
+    addToCart: (item: CartItemType) => void;
+    removeFromCart: (id: number) => void;
+    clearCart: () => void;
+};
+
+export const cartSlice : StateCreator<CartSliceType> = (set: (fn: (state: any) => any) => void): CartSliceType => ({
+    cart: [],
+    addToCart: (item) =>
+        set((state) => {
+            const exists = state.cart.find((i: CartItemType) => i.id === item.id);
+            if (exists) {
+                return {
+                    cart: state.cart.map((i: CartItemType) =>
+                        i.id === item.id ? { ...i, quantity: i.quantity + item.quantity } : i
+                    ),
+                };
+            }
+            return { cart: [...state.cart, item] };
+        }),
+    removeFromCart: (id) =>
+        set((state) => ({ cart: state.cart.filter((item: CartItemType) => item.id !== id) })),
+    clearCart: () => set(() => ({ cart: [] })),
+});
