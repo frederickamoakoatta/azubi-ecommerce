@@ -8,7 +8,7 @@ interface QuantityInputProps {
 
 const QuantityInput: FC<QuantityInputProps> = ({ value, onChange }) => {
     return (
-        <div className="flex items-center space-x-6 bg-accent px-4 py-2 rounded-md w-fit">
+        <div className="flex items-center space-x-6 bg-accent px-8 py-4 rounded-md w-fit">
             <button className="text-xl text-gray-400 cursor-pointer hover:text-primary" onClick={() => onChange(Math.max(1, value - 1))}>
                 –
             </button>
