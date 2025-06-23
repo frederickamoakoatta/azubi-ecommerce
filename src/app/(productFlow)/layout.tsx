@@ -22,12 +22,12 @@ export const metadata: Metadata = {
 
 const ProductFlowLayout =  ({children}: Readonly<{ children: ReactNode; }>) => (
     <html lang="en">
-    <body className={`${manrope.variable} antialiased`}>
-    <main className="relative">
+    <body className={`box-border ${manrope.variable} antialiased`}>
+    <section className="w-full relative">
         {children}
         <BottomContent/>
         <Footer/>
-    </main>
+    </section>
     </body>
     </html>
 )

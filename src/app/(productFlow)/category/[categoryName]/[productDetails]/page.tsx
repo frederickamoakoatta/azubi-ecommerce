@@ -17,7 +17,7 @@ const ProductDetails = () => {
         <>
             <Header isCategory={false}/>
             <GoBack/>
-            <PageSpace className="relative flex flex-col justify-start items-start gap-30">
+            <PageSpace className="w-full relative flex flex-col justify-start items-start gap-30">
                 <ProductCategory
                     imgPosition={'left'}
                     imgUrl={product?.image.desktop}

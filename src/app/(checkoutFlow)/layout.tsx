@@ -24,10 +24,10 @@ export default function ProductFlowLayout({children,}: { children: ReactNode }) 
     return (
         <html lang="en">
         <body className={`${manrope.variable} antialiased`}>
-        <main className="relative bg-accent">
+        <section className="w-full relative bg-accent">
             {children}
             <Footer/>
-        </main>
+        </section>
         </body>
         </html>
     )

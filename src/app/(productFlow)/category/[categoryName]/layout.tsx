@@ -3,7 +3,7 @@ import {ReactNode} from "react";
 
 export default function CategoryLayout({children,}: { children: ReactNode }) {
     return (
-        <section>
+        <section className="w-full">
             {children}
             <ProductOverlapGroup/>
         </section>

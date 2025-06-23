@@ -19,8 +19,15 @@ const AddToCart = () => {
 
     return (
         <div className="flex flex-col justify-start gap-8">
-            <CurrencyFormat displayType={'text'} value={product?.price} thousandSeparator={true} prefix={'$'}
-                            renderText={value => <h6>{value}</h6>}/>
+            <CurrencyFormat
+                displayType="text"
+                value={product?.price}
+                thousandSeparator={true}
+                prefix="$"
+                renderText={(value) => (
+                    <h6 className="text-center md:text-left">{value}</h6>
+                )}
+            />
             <div className="flex flex-row justify-start items-center gap-5">
                 <QuantityInput value={count} increase={increaseCount} decrease={decreaseCount}/>
                 <Button variant={'primary'} onClick={() => addToCart({

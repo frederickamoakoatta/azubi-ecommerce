@@ -16,7 +16,7 @@ const ProductYouLike = ({relatedProduct, category} : ProductsYouLikeProps) => {
         <div className="w-full flex flex-col justify-center items-center gap-5">
             <SnapShot className="w-full" src={relatedProduct.image.desktop} width={300} height={300} alt={'products you may like'}/>
             <h5>{relatedProduct.name}</h5>
-            <Button variant={'primary'} onClick={() => router.push(`/category/${category}/${relatedProduct.slug}`)}>
+            <Button variant={'primary'}>
                 See Product
             </Button>
         </div>

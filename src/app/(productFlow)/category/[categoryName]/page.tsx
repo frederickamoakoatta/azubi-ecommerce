@@ -23,7 +23,7 @@ const Category = () => {
     return (
         <>
             <Header name={params.categoryName as string} isCategory/>
-            <PageSpace className="flex flex-col justify-center items-center gap-30 my-20">
+            <PageSpace className="w-full flex flex-col justify-center items-center gap-30 my-20">
                 {products.map((product: ProductType, index: number) => (
                     <ProductCategory
                         key={product.id}

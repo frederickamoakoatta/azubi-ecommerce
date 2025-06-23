@@ -7,22 +7,39 @@ interface QuantityInputProps {
     increase: () => void;
     decrease: () => void;
     isSmall?: boolean;
+    className?: string;
 }
 
-const QuantityInput: FC<QuantityInputProps> = ({ value, increase, decrease, isSmall = false }) => {
+const QuantityInput: FC<QuantityInputProps> = ({ value, increase, decrease, className, isSmall = false }) => {
     return (
-        <div className={clsx("flex items-center space-x-6 bg-accent rounded-md w-fit", isSmall ? "py-2 px-6" : "py-4 px-8")}>
-            <button className="text-xl text-gray-400 cursor-pointer hover:text-primary" onClick={decrease}>
+        <div
+            className={clsx(
+                className,
+                "flex items-center space-x-4 bg-accent rounded-md w-fit",
+                "px-4 py-2",
+                "sm:px-6 sm:py-2",
+                "md:px-8 md:py-4"
+            )}
+        >
+            <button
+                className="text-lg sm:text-xl text-gray-400 cursor-pointer hover:text-primary"
+                onClick={decrease}
+            >
                 –
             </button>
-            <span className="text-lg text-black font-bold text-[13px]">{value}</span>
+
+            <span className="text-sm sm:text-base text-black font-bold">
+    {value}
+  </span>
+
             <button
-                className="text-xl text-gray-400 cursor-pointer hover:text-primary"
+                className="text-lg sm:text-xl text-gray-400 cursor-pointer hover:text-primary"
                 onClick={increase}
             >
                 +
             </button>
         </div>
+
     );
 };
 

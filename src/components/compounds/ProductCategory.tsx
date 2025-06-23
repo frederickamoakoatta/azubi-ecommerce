@@ -15,12 +15,30 @@ interface ProductCategoryProps extends ProductTextProps{
 
 const ProductCategory = ({imgPosition, imgUrl, className, title, hasSubTitle, subTitle, description, categoryProductChildren}: ProductCategoryProps) => {
     return (
-        <div className={clsx("w-full flex flex-row justify-between items-center gap-30", imgPosition === 'left' && "flex-row-reverse")}>
-            <ProductText className={className} mode={'light'} title={title} hasSubTitle={hasSubTitle} subTitle={subTitle} hasProduct description={description}>
+        <div
+            className={clsx(
+                "w-full flex flex-col-reverse justify-center items-stretch gap-10 md:gap-16",
+                imgPosition === "left" ? "lg:flex-row-reverse" : "lg:flex-row"
+            )}
+        >
+            <ProductText
+                className={className}
+                mode="light"
+                title={title}
+                hasSubTitle={hasSubTitle}
+                subTitle={subTitle}
+                hasProduct
+                description={description}
+            >
                 {categoryProductChildren}
             </ProductText>
 
-            <SnapShot className={"cursor-pointer"} src={imgUrl} alt={'product images'} width={500} height={540}/>
+            <SnapShot className="cursor-pointer w-full max-w-[300px] md:max-w-[400px] lg:max-w-[500px]"
+                src={imgUrl}
+                alt="product images"
+                width={500}
+                height={540}
+            />
         </div>
     );
 };
