@@ -2,7 +2,7 @@ import {ReactNode} from "react";
 import clsx from "clsx";
 
 interface PageSpaceProps {
-    className: string
+    className?: string
     children: ReactNode;
 }
 

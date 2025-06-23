@@ -3,6 +3,8 @@ import Image from "next/image";
 import clsx from "clsx";
 import {ProductType} from "@/types/product";
 import {ReactNode} from "react";
+import {transformImgPath} from "@/lib/util";
+import SnapShot from "@/components/atoms/SnapShot";
 
 interface ProductCategoryProps extends ProductTextProps{
     imgPosition: 'left' | 'right';
@@ -18,13 +20,7 @@ const ProductCategory = ({imgPosition, imgUrl, className, title, hasSubTitle, su
                 {categoryProductChildren}
             </ProductText>
 
-            <Image
-                src={`/images/${imgUrl?.split('./assets/', 9)[1]}`}
-                alt="Logo"
-                width={500}
-                height={540}
-                className="cursor-pointer"
-            />
+            <SnapShot className={"cursor-pointer"} src={imgUrl} alt={'product images'} width={500} height={540}/>
         </div>
     );
 };

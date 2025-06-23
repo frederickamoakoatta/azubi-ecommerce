@@ -8,13 +8,14 @@ interface TextInputProps {
     onChange: (value: string) => void;
     placeholder?: string;
     error?: string;
+    className?: string;
 }
 
-const TextInput: FC<TextInputProps> = ({ label, value, onChange, placeholder, error }) => {
+const TextInput: FC<TextInputProps> = ({ label, value, onChange, placeholder, error, className }) => {
     const borderColor = error ? "border-red-500" : value ? "border-primary" : "border-gray-300";
 
     return (
-        <div className="flex flex-col space-y-1">
+        <div className={clsx("flex flex-col space-y-1", className)}>
             <div className={clsx("flex flex-row items-center", error && "justify-between")}>
                 <label className={clsx("text-sm font-bold", error && "text-red")}>
                     {label}

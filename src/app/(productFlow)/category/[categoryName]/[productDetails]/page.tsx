@@ -5,14 +5,19 @@ import GoBack from "@/components/atoms/GoBack";
 import ProductCategory from "@/components/compounds/ProductCategory";
 import {useAppStore} from "@/store/appStore";
 import AddToCart from "@/components/compounds/AddToCart";
+import ProductFeature from "@/components/templates/ProductFeature";
+import ProductGallery from "@/components/templates/ProductGallery";
+import ProductRecommended from "@/components/templates/ProductRecommended";
+import CartModal from "@/components/templates/CartModal";
 
 const ProductDetails = () => {
-    const {product} = useAppStore();
+    const {product, showCart} = useAppStore();
+
     return (
         <>
             <Header isCategory={false}/>
-            <PageSpace className="flex flex-col justify-start items-start gap-10">
-               <GoBack/>
+            <GoBack/>
+            <PageSpace className="relative flex flex-col justify-start items-start gap-30">
                 <ProductCategory
                     imgPosition={'left'}
                     imgUrl={product?.image.desktop}
@@ -24,7 +29,11 @@ const ProductDetails = () => {
                     className={''}
                     categoryProductChildren={<AddToCart/>}
                 />
+                <ProductFeature features={product?.features} includes={product?.includes}/>
+                <ProductGallery gallery={product?.gallery}/>
+                <ProductRecommended others={product?.others} category={product?.category}/>
             </PageSpace>
+            { showCart && <CartModal/> }
         </>
     );
 };

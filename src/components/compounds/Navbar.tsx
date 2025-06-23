@@ -17,7 +17,7 @@ const Navbar = ({showLine = true} : NavbarProps) => {
                         <NavLink/>
 
                         <div className="flex-shrink-0">
-                            <CartIcon count={0}/>
+                            <CartIcon/>
                         </div>
                     </div>
                 </div>

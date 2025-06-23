@@ -22,7 +22,7 @@ const ProductText = ({mode, title, subTitle, hasSubTitle, description, children,
                     <h2 className={mode === "light" ? "text-black" : "text-white"}>{title}</h2> :
                     <h1 className={mode === "light" ? "text-black" : "text-white"}>{title}</h1>
             }
-            <p className={mode === "light" ? "text-black" : "text-white"}>{description}</p>
+            <p className={clsx("opacity-50", mode === "light" ? "text-black" : "text-white")}>{description}</p>
             {children}
         </div>
     );

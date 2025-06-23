@@ -9,7 +9,7 @@ import {useRouter} from "next/navigation";
 const Intro = () => {
     const router = useRouter();
     return (
-        <PageSpace className={"bg-[url(/images/home/desktop/image-hero.jpg)] bg-cover bg-center min-h-[90vh] h-[90vh]"}>
+        <PageSpace className={"bg-[url(/images/home/desktop/image-hero.jpg)] md:bg-[url(/images/home/tablet/image-hero.jpg)] bg-cover bg-center min-h-[90vh] h-[90vh]"}>
             <Navbar/>
             <div className="w-full h-[80vh] flex flex-row justify-start">
                 <ProductText className={'w-[30vw]'} mode={'dark'} subTitle={'New Product'} hasSubTitle
