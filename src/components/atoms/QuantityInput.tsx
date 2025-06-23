@@ -1,25 +1,45 @@
 "use client";
 import {FC} from "react";
+import clsx from "clsx";
 
 interface QuantityInputProps {
     value: number;
-    onChange: (value: number) => void;
+    increase: () => void;
+    decrease: () => void;
+    isSmall?: boolean;
+    className?: string;
 }
 
-const QuantityInput: FC<QuantityInputProps> = ({ value, onChange }) => {
+const QuantityInput: FC<QuantityInputProps> = ({ value, increase, decrease, className, isSmall = false }) => {
     return (
-        <div className="flex items-center space-x-6 bg-accent px-8 py-4 rounded-md w-fit">
-            <button className="text-xl text-gray-400 cursor-pointer hover:text-primary" onClick={() => onChange(Math.max(1, value - 1))}>
+        <div
+            className={clsx(
+                className,
+                "flex items-center space-x-4 bg-accent rounded-md w-fit",
+                "px-4 py-2",
+                "sm:px-6 sm:py-2",
+                "md:px-8 md:py-4"
+            )}
+        >
+            <button
+                className="text-lg sm:text-xl text-gray-400 cursor-pointer hover:text-primary"
+                onClick={decrease}
+            >
                 –
             </button>
-            <span className="text-lg text-black font-bold text-[13px]">{value}</span>
+
+            <span className="text-sm sm:text-base text-black font-bold">
+    {value}
+  </span>
+
             <button
-                className="text-xl text-gray-400 cursor-pointer hover:text-primary"
-                onClick={() => onChange(value + 1)}
+                className="text-lg sm:text-xl text-gray-400 cursor-pointer hover:text-primary"
+                onClick={increase}
             >
                 +
             </button>
         </div>
+
     );
 };
 

@@ -15,10 +15,12 @@
     --color-white: #FFFFFF;
     --color-black: #000000;
     --color-red: #CD2C2C;
+    --color-overlay: rgba(2, 2, 2, 0.45);
 }
 body {
     background: var(--color-white);
     font-family: var(--font-manrope), sans-serif;
+    overflow-x: hidden;
 }
 
 h1 {

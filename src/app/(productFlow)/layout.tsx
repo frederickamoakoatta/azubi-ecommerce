@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
-import "./globals.css";
-import BottomContent from "@/components/templates/BottomContent";
+import "../globals.css";
 import Footer from "@/components/templates/Footer";
+import {ReactNode} from "react";
+import BottomContent from "@/components/templates/BottomContent";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -19,18 +20,16 @@ export const metadata: Metadata = {
   }
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
+const ProductFlowLayout =  ({children}: Readonly<{ children: ReactNode; }>) => (
     <html lang="en">
-      <body className={`${manrope.variable} antialiased`}>
+    <body className={`box-border ${manrope.variable} antialiased`}>
+    <section className="w-full relative">
         {children}
         <BottomContent/>
         <Footer/>
-      </body>
+    </section>
+    </body>
     </html>
-  );
-}
+)
+
+export default ProductFlowLayout;

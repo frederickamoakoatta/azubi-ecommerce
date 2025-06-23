@@ -6,7 +6,7 @@ import SmallBanner from "@/components/compounds/SmallBanner";
 
 const BannerGroup = () => {
     return (
-        <PageSpace className={'flex flex-col items-center gap-10 min-h-[160vh] h-[160vh]'}>
+        <PageSpace className={'flex flex-col items-center gap-10'}>
             <BigBanner/>
             <MediumBanner/>
             <SmallBanner/>

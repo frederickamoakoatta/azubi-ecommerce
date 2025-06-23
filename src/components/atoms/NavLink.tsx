@@ -15,7 +15,7 @@ const NavLink = () => {
     const pathname = usePathname();
 
     return (
-        <div className="hidden md:flex space-x-6">
+        <div className="hidden lg:flex space-x-6">
             {navItems.map((item) => (
                 <Link
                     key={item.name}

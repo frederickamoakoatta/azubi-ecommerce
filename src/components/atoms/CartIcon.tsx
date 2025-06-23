@@ -1,9 +1,12 @@
 "use client";
 import Image from "next/image";
+import {useAppStore} from "@/store/appStore";
 
-const CartIcon = ({ count = 0 }: { count: number }) => {
+const CartIcon = () => {
+    const {showCart, setShowCart, cart} = useAppStore();
+
     return (
-        <div className="relative">
+        <div className="relative cursor-pointer" onClick={() =>setShowCart(!showCart)}>
             <Image
                 src="/images/home/cart-icon.svg"
                 alt="Cart"
@@ -12,9 +15,9 @@ const CartIcon = ({ count = 0 }: { count: number }) => {
                 className="cursor-pointer hover:text-primary transition-colors"
             />
 
-            {count > 0 && (
+            {cart.length > 0 && (
                 <span className="absolute -top-2 -right-2 bg-primary text-white text-xs font-semibold px-1.5 py-0.5 rounded-full">
-          {count}
+          {cart.length}
         </span>
             )}
         </div>

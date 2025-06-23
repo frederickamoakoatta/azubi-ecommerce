@@ -7,11 +7,12 @@ import PageSpace from "@/components/compounds/PageSpace";
 import {useParams, useRouter} from "next/navigation";
 import Button from "@/components/atoms/Button";
 import {useAppStore} from "@/store/appStore";
+import CartModal from "@/components/templates/CartModal";
 
 const Category = () => {
     const params = useParams();
     const products = getProductByCategory(params.categoryName as string);
-    const { setProduct } = useAppStore();
+    const { setProduct, showCart } = useAppStore();
     const router = useRouter();
 
     const moveToDetailsPage = (product : ProductType) => {
@@ -22,12 +23,12 @@ const Category = () => {
     return (
         <>
             <Header name={params.categoryName as string} isCategory/>
-            <PageSpace className="flex flex-col justify-center items-center gap-30 my-20">
+            <PageSpace className="w-full flex flex-col justify-center items-center gap-30 my-20">
                 {products.map((product: ProductType, index: number) => (
                     <ProductCategory
                         key={product.id}
                         imgPosition={index % 2 === 0 ? 'left' : 'right'}
-                        imgUrl={product.image.desktop}
+                        imgUrl={product.categoryImage.desktop}
                         className={'w-[60vh]'}
                         title={product.name}
                         hasSubTitle={product.new}
@@ -40,6 +41,7 @@ const Category = () => {
                     />
                 ))}
             </PageSpace>
+            { showCart && <CartModal/> }
         </>
     );
 };

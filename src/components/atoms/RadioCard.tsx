@@ -8,21 +8,22 @@ interface RadioCardProps {
     checked: boolean;
     onChange: (value: string) => void;
     name: string;
+    className?: string;
 }
 
 const RadioCard: FC<RadioCardProps> = ({
-                                                 label,
-                                                 value,
-                                                 checked,
-                                                 onChange,
-                                                 name,
-                                             }) => {
+                                           label,
+                                           value,
+                                           checked,
+                                           onChange,
+                                           name,
+                                           className
+                                       }) => {
     return (
-        <label
-            className={clsx(
-                "flex items-center border rounded-md px-4 py-4 cursor-pointer transition-all",
-                checked ? "border-primary" : "border-gray-300 hover:border-primary"
-            )}
+        <label className={clsx(
+            "flex items-center border rounded-md px-4 py-4 cursor-pointer transition-all",
+            checked ? "border-primary" : "border-gray-300 hover:border-primary", className
+        )}
         >
             <input
                 type="radio"
@@ -38,7 +39,7 @@ const RadioCard: FC<RadioCardProps> = ({
                     checked ? "border-primary" : "border-gray-400"
                 )}
             >
-        {checked && <span className="w-2.5 h-2.5 bg-primary rounded-full" />}
+        {checked && <span className="w-2.5 h-2.5 bg-primary rounded-full"/>}
       </span>
             <span className="font-bold text-black">{label}</span>
         </label>

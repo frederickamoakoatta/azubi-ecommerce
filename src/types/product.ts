@@ -29,7 +29,7 @@ type IncludedItem = {
     item: string;
 };
 
-type RelatedProduct = {
+export type RelatedProduct = {
     slug: string;
     name: string;
     image: ImageSet;

@@ -1,7 +1,7 @@
 "use client";
 import clsx from "clsx";
-import {ButtonHTMLAttributes} from "react";
-import {FiChevronRight} from "react-icons/fi";
+import { ButtonHTMLAttributes } from "react";
+import { FiChevronRight } from "react-icons/fi";
 
 type ButtonVariant = 'primary' | 'outline' | 'link' | 'default';
 
@@ -9,8 +9,17 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant: ButtonVariant;
 }
 
-export const Button = ({ children, variant = 'primary', className, ...props }: ButtonProps) => {
-    const base = 'uppercase flex items-center cursor-pointer tracking-widest text-sm font-bold px-8 py-4 transition-colors duration-300';
+export const Button = ({
+                           children,
+                           variant = 'primary',
+                           className,
+                           ...props
+                       }: ButtonProps) => {
+    const base =
+        'uppercase flex items-center cursor-pointer tracking-widest font-bold transition-colors duration-300 ' +
+        'text-xs px-4 py-4 ' +
+        'sm:text-sm sm:px-6 sm:py-3 ' +
+        'md:text-sm md:px-8 md:py-4';
 
     const variants: Record<ButtonVariant, string> = {
         primary: 'bg-primary text-white hover:bg-primaryFade',
@@ -22,7 +31,9 @@ export const Button = ({ children, variant = 'primary', className, ...props }: B
     return (
         <button className={clsx(base, variants[variant], className)} {...props}>
             {children}
-            {variant === 'link' && <FiChevronRight size={16} className={'text-primary mx-3'} />}
+            {variant === 'link' && (
+                <FiChevronRight size={16} className="text-primary ml-2 sm:ml-3" />
+            )}
         </button>
     );
 };
